@@ -15,14 +15,6 @@ import { format } from "date-fns";
 
 export default function Home() {
     const {
-        signed,
-        signIn,
-        user,
-        idMT5,
-        idsMT5,
-        name,
-        lastName,
-        email,
         userID,
     } = useContext(AuthContext);
     const history = useNavigate();

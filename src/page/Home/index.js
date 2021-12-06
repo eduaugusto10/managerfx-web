@@ -7,7 +7,6 @@ import {
     Box,
     Title,
     Title2,
-    SignInButton,
     Input,
     CircleButton,
     Button,
@@ -22,8 +21,7 @@ import AuthContext from "../../context/auth";
 
 export default function Home() {
     const history = useNavigate();
-    const { signed, signIn, user, idMT5, idsMT5, name, lastName, newUserID } =
-        useContext(AuthContext);
+    const { idsMT5, name, lastName, newUserID } = useContext(AuthContext);
     const [users, setUsers] = useState();
     const [usersAtivated, setUsersAtivated] = useState(1);
 
@@ -31,32 +29,43 @@ export default function Home() {
         newUserID(e);
         history("/user");
     }
-
     useEffect(() => {
+        async function queryUsers() {
+            try {
+                api.get(`/users/${idsMT5}`).then((result) => {
+                    setUsers(result.data);
+                    let countActivated = 0;
+                    for (let i = 0; i < result.data.length; i++) {
+                        if (result.data[i].ativated === "1") countActivated++;
+                    }
+                    setUsersAtivated(countActivated);
+                });
+            } catch (err) {
+                console.log(err);
+            }
+        }
         queryUsers();
     }, []);
-    async function queryUsers() {
-        try {
-            api.get(`/users/${idsMT5}`).then((result) => {
-                setUsers(result.data);
-                let countActivated = 0;
-                for (let i = 0; i < result.data.length; i++) {
-                    if (result.data[i].ativated === "1") countActivated++;
-                }
-                setUsersAtivated(countActivated);
-            });
-        } catch (err) {
-            console.log(err);
-        }
-    }
 
     async function UpdateUser(ids, ativateds) {
         const data = new FormData();
         data.append("ativated", ativateds === "1" ? "0" : "1");
         data.append("_method", "PUT");
         try {
-            api.put(`/users/${ids}`, data).then((result) => {
-                queryUsers();
+            await api.put(`/users/${ids}`, data).then((result) => {
+                try {
+                    api.get(`/users/${idsMT5}`).then((result) => {
+                        setUsers(result.data);
+                        let countActivated = 0;
+                        for (let i = 0; i < result.data.length; i++) {
+                            if (result.data[i].ativated === "1")
+                                countActivated++;
+                        }
+                        setUsersAtivated(countActivated);
+                    });
+                } catch (err) {
+                    console.log(err);
+                }
             });
         } catch (err) {
             console.log(err);
@@ -91,8 +100,8 @@ export default function Home() {
             </Box>
             <div style={{ textAlign: "center", backgroundColor: "#FFFFFF" }}>
                 {users &&
-                    users.map((user) => (
-                        <List key={user}>
+                    users.map((user, index) => (
+                        <List key={index}>
                             <ContentList>
                                 <Text>{user.id_metatrader} </Text>
                                 <br />

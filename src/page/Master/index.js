@@ -22,7 +22,6 @@ export default function Master() {
     const history = useNavigate();
     const { newUserID } = useContext(AuthContext);
     const [users, setUsers] = useState();
-    const [usersAtivated, setUsersAtivated] = useState(1);
 
     function Redirect(e) {
         newUserID(e);
@@ -40,11 +39,6 @@ export default function Master() {
         try {
             api.get("/users").then((result) => {
                 setUsers(result.data);
-                let countActivated = 0;
-                for (let i = 0; i < result.data.length; i++) {
-                    if (result.data[i].ativated === "1") countActivated++;
-                }
-                setUsersAtivated(countActivated);
             });
         } catch (err) {
             console.log(err);
@@ -75,9 +69,9 @@ export default function Master() {
             </Box>
             <div style={{ textAlign: "center", backgroundColor: "#FFFFFF" }}>
                 {users &&
-                    users.map((user) =>
+                    users.map((user,index) =>
                         user.admin === 1 ? (
-                            <List key={user}>
+                            <List key={index}>
                                 <ContentList>
                                     <Text>{user.id_metatrader} </Text>
                                     <br />

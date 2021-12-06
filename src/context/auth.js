@@ -1,5 +1,4 @@
 import React, { createContext, useState } from "react";
-import * as auth from "../services/auth";
 
 const AuthContext = createContext({
     signed: false,

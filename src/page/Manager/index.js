@@ -1,6 +1,5 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useState } from "react";
 import api from "../../services/api";
-import AuthContext from "../../context/auth";
 import { useNavigate } from "react-router-dom";
 import {
     Container,
@@ -11,20 +10,9 @@ import {
     ButtonGreen,
     Cards,
 } from "./style";
-import { format } from "date-fns";
 
 export default function Home() {
-    const {
-        signed,
-        signIn,
-        user,
-        idMT5,
-        idsMT5,
-        name,
-        lastName,
-        email,
-        userID,
-    } = useContext(AuthContext);
+
     const history = useNavigate();
     const [emails, setEmails] = useState();
     const [names, setNames] = useState();

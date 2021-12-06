@@ -11,12 +11,12 @@ import Manager from "../page/Manager";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 const PrivateRoute = () => {
-    const { signed, idsMT5, idAdm } = useContext(AuthContext);
+    const { signed } = useContext(AuthContext);
 
     return signed ? <Home /> : <Login />;
 };
 const MasterRoute = () => {
-    const { signed, idsMT5, idAdm } = useContext(AuthContext);
+    const { signed } = useContext(AuthContext);
 
     return signed ? <Master /> : <Login />;
 };

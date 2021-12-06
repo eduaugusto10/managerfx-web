@@ -14,17 +14,7 @@ import {
 import AuthContext from "../../context/auth";
 
 export default function UserSignIn() {
-    const {
-        signed,
-        signIn,
-        user,
-        idMT5,
-        idsMT5,
-        name,
-        lastName,
-        email,
-        userID,
-    } = useContext(AuthContext);
+    const { userID } = useContext(AuthContext);
     const history = useNavigate();
     const [emails, setEmails] = useState();
     const [names, setNames] = useState();
@@ -36,9 +26,10 @@ export default function UserSignIn() {
     async function queryUsers() {
         try {
             await api.get(`/userss/${userID}`).then((result) => {
-                setEmails(result.data.email);
-                setNames(result.data.first_name);
-                SetIDMetatrader(result.data.id_metatrader);
+                console.log(result);
+                setEmails(result.data[0].email);
+                setNames(result.data[0].first_name);
+                SetIDMetatrader(result.data[0].id_metatrader);
             });
         } catch (err) {
             console.log(err);

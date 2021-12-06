@@ -5,7 +5,7 @@ import api from "../../services/api";
 import AuthContext from "../../context/auth";
 
 export default function Login() {
-    const { signed, signIn, user, idMT5, idsMT5 } = useContext(AuthContext);
+    const { signIn, idMT5 } = useContext(AuthContext);
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -30,8 +30,8 @@ export default function Login() {
                         },
                     }
                 ).then((result) => {
-                    signIn(result.data.token.token);
                     idMT5(result.data.user[0]);
+                    signIn(result.data.token.token);
                 });
             } catch (err) {
                 console.log(err);
