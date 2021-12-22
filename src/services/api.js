@@ -2,7 +2,8 @@ import axios from "axios";
 import { getToken } from "./auth";
 
 const api = axios.create({
-    baseURL: "https://api-managerfx.herokuapp.com",
+    //baseURL: "https://api-managerfx.herokuapp.com",
+    baseURL: "http://18.191.201.233/api",
 });
 
 api.interceptors.request.use(async (config) => {
