@@ -12,7 +12,9 @@ import {
     Columns,
     Subtitle,
     Description,
-    SquadOrange,Button
+    SquadOrange,
+    Button,
+    ImageLogos,
 } from "./style";
 import Logo from "../../assets/Logoapp.png";
 import CelLeft from "../../assets/celleft.png";
@@ -77,12 +79,13 @@ export default function LandingPage() {
                     <div style={{ display: "flex", flexDirection: "column" }}>
                         <div style={{ display: "flex", flexDirection: "row" }}>
                             <SquadOrange>
-                                <ImageLogo src={Graphic} />
+                                <ImageLogos src={Graphic} />
                             </SquadOrange>
                             <div
                                 style={{
                                     display: "flex",
-                                    flexDirection: "column", textAlign:"left"
+                                    flexDirection: "column",
+                                    textAlign: "left",
                                 }}
                             >
                                 <Subtitle>Gráfico de Growth</Subtitle>
@@ -92,14 +95,21 @@ export default function LandingPage() {
                                 </Description>
                             </div>
                         </div>
-                        <div style={{ display: "flex", flexDirection: "row", marginTop:"90px" }}>
+                        <div
+                            style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                marginTop: "90px",
+                            }}
+                        >
                             <SquadOrange>
-                                <ImageLogo src={Orders} />
+                                <ImageLogos src={Orders} />
                             </SquadOrange>
                             <div
                                 style={{
                                     display: "flex",
-                                    flexDirection: "column", textAlign:"left"
+                                    flexDirection: "column",
+                                    textAlign: "left",
                                 }}
                             >
                                 <Subtitle>Ordens</Subtitle>
@@ -111,18 +121,19 @@ export default function LandingPage() {
                         </div>
                     </div>
                     <div>
-                        <ImageLogo src={DisplayBlue} />
-                                <Button>Adquirir</Button>
+                        <ImageLogos src={DisplayBlue} />
+                        <Button>Adquirir</Button>
                     </div>
                     <div style={{ display: "flex", flexDirection: "column" }}>
                         <div style={{ display: "flex", flexDirection: "row" }}>
                             <SquadOrange>
-                                <ImageLogo src={Dashboard} />
+                                <ImageLogos src={Dashboard} />
                             </SquadOrange>
                             <div
                                 style={{
                                     display: "flex",
-                                    flexDirection: "column", textAlign:"left"
+                                    flexDirection: "column",
+                                    textAlign: "left",
                                 }}
                             >
                                 <Subtitle>Dashboard</Subtitle>
@@ -132,14 +143,21 @@ export default function LandingPage() {
                                 </Description>
                             </div>
                         </div>
-                        <div style={{ display: "flex", flexDirection: "row", marginTop:"90px" }}>
+                        <div
+                            style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                marginTop: "90px",
+                            }}
+                        >
                             <SquadOrange>
-                                <ImageLogo src={Extract} />
+                                <ImageLogos src={Extract} />
                             </SquadOrange>
                             <div
                                 style={{
                                     display: "flex",
-                                    flexDirection: "column", textAlign:"left"
+                                    flexDirection: "column",
+                                    textAlign: "left",
                                 }}
                             >
                                 <Subtitle>Extrato</Subtitle>

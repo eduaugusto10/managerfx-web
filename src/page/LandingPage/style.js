@@ -7,11 +7,20 @@ export const Container = styled.div`
         rgba(36, 92, 160, 0) 0%,
         rgba(36, 92, 160, 1) 100%
     );
+
 `;
 
 export const ImageLogo = styled.img`
     margin-top: 30px;
     margin: 20px;
+    @media screen and (max-width: 800px) {
+        width: 20%;
+    }
+`;
+export const ImageLogos = styled.img`
+    margin-top: 30px;
+    margin: 20px;
+
 `;
 export const ImageCheck = styled.img`
     width: 42px;
@@ -21,7 +30,7 @@ export const ImageCheck = styled.img`
 `;
 export const CardII = styled.div`
     background-color: #ffffff;
-    margin-top:30px;
+    margin-top: 30px;
 `;
 
 export const Text = styled.text`
@@ -44,6 +53,10 @@ export const Card = styled.div`
     align-items: center;
     text-align: center;
     justify-content: center;
+    @media screen and (max-width: 800px) {
+        display: flex;
+        flex-direction: column;
+    }
 `;
 
 export const Columns = styled.div`
@@ -52,12 +65,16 @@ export const Columns = styled.div`
     align-items: center;
     text-align: center;
     justify-content: center;
+    @media screen and (max-width: 800px) {
+        display: flex;
+        flex-direction: column;
+    }
 `;
 
 export const Subtitle = styled.text`
     color: #000000;
     font-size: 22px;
-    margin-left:12px;
+    margin-left: 12px;
 `;
 export const Description = styled.text`
     color: #00000099;
@@ -66,17 +83,17 @@ export const Description = styled.text`
 `;
 
 export const SquadOrange = styled.div`
-    border: 3px solid #F7941D;
+    border: 3px solid #f7941d;
     width: 80px;
     height: 80px;
 `;
 
 export const Button = styled.button`
-width: 267px;
-height: 59px;
-color:#FFFFFF;
-background-color: #F7941D;
-font-size: 30px;
-border-radius: 30px;
-margin: 30px;
+    width: 267px;
+    height: 59px;
+    color: #ffffff;
+    background-color: #f7941d;
+    font-size: 30px;
+    border-radius: 30px;
+    margin: 30px;
 `;
