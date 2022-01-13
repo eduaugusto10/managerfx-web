@@ -20,18 +20,32 @@ const MasterRoute = () => {
 
     return signed ? <Master /> : <Login />;
 };
+const SignInRoute = () => {
+    const { signed } = useContext(AuthContext);
+
+    return signed ? <SignIn /> : <Login />;
+};
+const UserSignInRoute = () => {
+    const { signed } = useContext(AuthContext);
+
+    return signed ? <UserSignIn /> : <Login />;
+};
+const ManagerRoute = () => {
+    const { signed } = useContext(AuthContext);
+
+    return signed ? <Manager /> : <Login />;
+};
 
 const Router = () => (
     <BrowserRouter>
         <Routes>
-            <Route path="/muser" element={<SignIn />} />
-            <Route path="/user" element={<UserSignIn />} />
-            <Route path="/home" element={<Home />} />
-            <Route exact path="/" element={<LandingPage />} />
+            <Route path="/muser" element={<SignInRoute />} />
+            <Route path="/user" element={<UserSignInRoute />} />
             <Route path="/login" element={<PrivateRoute />} />
             <Route path="/admin" element={<MasterRoute />} />
-            <Route path="/manager" element={<Manager />} />
-            <Route path="*" element={() => <h1>Page not found</h1>} />
+            <Route path="/manager" element={<ManagerRoute />} />
+            <Route exact path="/" element={<LandingPage />} />
+            <Route path="*" element={<LandingPage />} />
         </Routes>
     </BrowserRouter>
 );
