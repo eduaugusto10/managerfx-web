@@ -14,9 +14,7 @@ import {
 import { format } from "date-fns";
 
 export default function Home() {
-    const {
-        userID,
-    } = useContext(AuthContext);
+    const { userID } = useContext(AuthContext);
     const history = useNavigate();
     const [emails, setEmails] = useState();
     const [names, setNames] = useState();
@@ -114,6 +112,7 @@ export default function Home() {
                         placeholder="Expiração da Assinatura"
                         value={expiration}
                         onChange={(e) => setExpiration(e.target.value)}
+                        type="date"
                     />
                     <Input
                         placeholder="Plano"

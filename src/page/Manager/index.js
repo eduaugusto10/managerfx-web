@@ -92,6 +92,7 @@ export default function Home() {
                         placeholder="Expiração da Assinatura"
                         value={expiration}
                         onChange={(e) => setExpiration(e.target.value)}
+                        type="date"
                     />
                     <Input
                         placeholder="Plano"
