@@ -3,7 +3,7 @@ import { getToken } from "./auth";
 
 const api = axios.create({
     //baseURL: "https://api-managerfx.herokuapp.com",
-    baseURL: "https://www.managerfx.ogefx.com.br/api",//aws
+    baseURL: "https://managerfx.ogefx.com.br/api",//aws
 });
 
 api.interceptors.request.use(async (config) => {

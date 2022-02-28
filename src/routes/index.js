@@ -30,11 +30,6 @@ const UserSignInRoute = () => {
 
     return signed ? <UserSignIn /> : <Login />;
 };
-const ManagerRoute = () => {
-    const { signed } = useContext(AuthContext);
-
-    return signed ? <Manager /> : <Login />;
-};
 
 const Router = () => (
     <BrowserRouter>
@@ -42,8 +37,8 @@ const Router = () => (
             <Route path="/muser" element={<SignInRoute />} />
             <Route path="/user" element={<UserSignInRoute />} />
             <Route path="/login" element={<PrivateRoute />} />
-            <Route path="/admin" element={<MasterRoute />} />
-            <Route path="/manager" element={<ManagerRoute />} />
+            <Route path="/admin" element={<PrivateRoute />} />
+            <Route path="/manager" element={<MasterRoute />} />
             <Route exact path="/" element={<LandingPage />} />
             <Route path="*" element={<LandingPage />} />
         </Routes>
