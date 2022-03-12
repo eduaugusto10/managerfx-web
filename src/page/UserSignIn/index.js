@@ -42,6 +42,7 @@ export default function UserSignIn() {
         data.append("first_name", names);
         data.append("email", emails);
         data.append("id_metatrader", idMetatrader);
+        data.append("performance", performance);
         data.append("_method", "PUT");
         try {
             api.put(`/users/${userID}`, data).then((result) => {
