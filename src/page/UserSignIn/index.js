@@ -19,6 +19,7 @@ export default function UserSignIn() {
     const [emails, setEmails] = useState();
     const [names, setNames] = useState();
     const [idMetatrader, SetIDMetatrader] = useState();
+    const [performance, setPerformance] = useState();
 
     useEffect(() => {
         queryUsers();
@@ -29,6 +30,7 @@ export default function UserSignIn() {
                 setEmails(result.data[0].email);
                 setNames(result.data[0].first_name);
                 SetIDMetatrader(result.data[0].id_metatrader);
+                setPerformance(result.data[0].performance);
             });
         } catch (err) {
             console.log(err);
@@ -74,7 +76,10 @@ export default function UserSignIn() {
                         value={idMetatrader}
                         onChange={(e) => SetIDMetatrader(e.target.value)}
                     />
-                    <Input placeholder="Plano" />
+                    <Input
+                        value={performance}
+                        onChange={(e) => setPerformance(e.target.value)}
+                    />
                 </Box>
             </Cards>
             <LastBlock>
