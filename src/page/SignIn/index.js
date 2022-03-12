@@ -68,7 +68,7 @@ export default function Home() {
     }
 
     function Redirect() {
-        history("/master");
+        history("/manager");
     }
 
     return (
