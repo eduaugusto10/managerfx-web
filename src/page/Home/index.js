@@ -120,7 +120,7 @@ export default function Home() {
                                 E-mail
                             </ContentList>
                             <ContentList>
-                                <Text>25%</Text>
+                                <Text>{user.performance}</Text>
                                 <br />
                                 Plano
                             </ContentList>
