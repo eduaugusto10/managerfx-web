@@ -26,7 +26,6 @@ export default function UserSignIn() {
     async function queryUsers() {
         try {
             await api.get(`/userss/${userID}`).then((result) => {
-                console.log(result);
                 setEmails(result.data[0].email);
                 setNames(result.data[0].first_name);
                 SetIDMetatrader(result.data[0].id_metatrader);
@@ -53,7 +52,7 @@ export default function UserSignIn() {
     }
 
     function Redirect() {
-        history("/home");
+        history("/admin");
     }
 
     return (
