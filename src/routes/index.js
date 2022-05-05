@@ -6,7 +6,6 @@ import Login from "../page/Login";
 import LandingPage from "../page/LandingPage";
 import AuthContext from "../context/auth";
 import Master from "../page/Master";
-import Manager from "../page/Manager";
 
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 

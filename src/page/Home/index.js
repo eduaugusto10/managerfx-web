@@ -22,8 +22,8 @@ import AuthContext from "../../context/auth";
 export default function Home() {
     const history = useNavigate();
     const { idsMT5, name, lastName, newUserID } = useContext(AuthContext);
-    const [users, setUsers] = useState();
-    const [usersAtivated, setUsersAtivated] = useState(1);
+    const [users, setUsers] = useState([]);
+    const [usersAtivated, setUsersAtivated] = useState(0);
 
     function Redirect(e) {
         newUserID(e);
@@ -33,12 +33,8 @@ export default function Home() {
         async function queryUsers() {
             try {
                 api.get(`/users/${idsMT5}`).then((result) => {
-                    setUsers(result.data);
-                    let countActivated = 0;
-                    for (let i = 0; i < result.data.length; i++) {
-                        if (result.data[i].ativated === "1") countActivated++;
-                    }
-                    setUsersAtivated(countActivated);
+                    setUsers(result.data.user);
+                    setUsersAtivated(result.data.userActivated.length);
                 });
             } catch (err) {
                 console.log(err);
@@ -55,13 +51,8 @@ export default function Home() {
             await api.put(`/users/${ids}`, data).then((result) => {
                 try {
                     api.get(`/users/${idsMT5}`).then((result) => {
-                        setUsers(result.data);
-                        let countActivated = 0;
-                        for (let i = 0; i < result.data.length; i++) {
-                            if (result.data[i].ativated === "1")
-                                countActivated++;
-                        }
-                        setUsersAtivated(countActivated);
+                        setUsers(result.data.user);
+                        setUsersAtivated(result.data.userActivated.length);
                     });
                 } catch (err) {
                     console.log(err);
